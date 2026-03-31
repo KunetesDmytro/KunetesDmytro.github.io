@@ -1,10 +1,341 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PizzaCraft — Крафтова Піца</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
 
-</body>
+    <!-- ===== HEADER ===== -->
+    <header>
+      <div class="header-inner">
+        <a href="#" class="logo">
+          <span class="logo-icon">🍕</span>
+          <span class="logo-text">Pizza<em>Craft</em></span>
+        </a>
+
+        <button class="burger" id="burger" aria-label="Меню">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav id="main-nav">
+          <ul>
+            <li><a href="#menu" class="nav-link active">Меню</a></li>
+            <li><a href="#cart" class="nav-link">Кошик <span class="cart-count" id="cart-count">0</span></a></li>
+            <li><a href="#orders" class="nav-link">Мої замовлення</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main>
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-content">
+          <p class="hero-label">Свіжа щодня · Пічне випікання</p>
+          <h1>Піца, зроблена<br /><em>з душею</em></h1>
+          <p class="hero-sub">Крафтове тісто, фермерські інгредієнти та 48 год. ферментація. Відчуй різницю.</p>
+          <a href="#menu" class="btn-primary">Переглянути меню</a>
+        </div>
+        <div class="hero-visual">
+          <div class="pizza-circle">
+            <span class="pizza-emoji">🍕</span>
+          </div>
+          <div class="badge badge-1">No. 1<br/><small>у Львові</small></div>
+          <div class="badge badge-2">48h<br/><small>ферментація</small></div>
+        </div>
+      </section>
+
+      <!-- ===== MENU SECTION ===== -->
+      <section id="menu" class="section">
+        <div class="section-header">
+          <h2>Наше <em>Меню</em></h2>
+          <p>Кожна піца — окремий кулінарний маніфест</p>
+        </div>
+
+        <!-- Category filters -->
+        <div class="filters" id="filters">
+          <button class="filter-btn active" data-cat="all">Усі</button>
+          <button class="filter-btn" data-cat="classic">Класика</button>
+          <button class="filter-btn" data-cat="craft">Крафт</button>
+          <button class="filter-btn" data-cat="vegan">Веган</button>
+        </div>
+
+        <!-- Menu grid -->
+        <div class="menu-grid" id="menu-grid">
+
+          <article class="pizza-card" data-cat="classic">
+            <div class="pizza-img">🍕</div>
+            <div class="pizza-info">
+              <span class="tag">Класика</span>
+              <h3>Маргарита Vera</h3>
+              <p>Томат San Marzano, моцарела буффало, базилік, EVOO</p>
+              <div class="pizza-meta">
+                <span class="price">₴ 280</span>
+                <span class="weight">350г · 32см</span>
+              </div>
+              <div class="card-stars">★★★★★</div>
+            </div>
+            <button class="add-btn" onclick="addToCart('Маргарита Vera', 280, '🍕')">+ До кошика</button>
+          </article>
+
+          <article class="pizza-card" data-cat="craft">
+            <div class="pizza-img fire">🔥</div>
+            <div class="pizza-info">
+              <span class="tag tag-craft">Крафт</span>
+              <h3>Nduja Inferno</h3>
+              <p>Гостра ндуйя, пепероні, страчателла, мед, чилі</p>
+              <div class="pizza-meta">
+                <span class="price">₴ 390</span>
+                <span class="weight">420г · 32см</span>
+              </div>
+              <div class="card-stars">★★★★★</div>
+            </div>
+            <button class="add-btn" onclick="addToCart('Nduja Inferno', 390, '🔥')">+ До кошика</button>
+          </article>
+
+          <article class="pizza-card" data-cat="craft">
+            <div class="pizza-img">🫒</div>
+            <div class="pizza-info">
+              <span class="tag tag-craft">Крафт</span>
+              <h3>Black Truffle</h3>
+              <p>Крем з трюфелю, фонтіна, пармезан 36 міс., рукола</p>
+              <div class="pizza-meta">
+                <span class="price">₴ 520</span>
+                <span class="weight">400г · 32см</span>
+              </div>
+              <div class="card-stars">★★★★★</div>
+            </div>
+            <button class="add-btn" onclick="addToCart('Black Truffle', 520, '🫒')">+ До кошика</button>
+          </article>
+
+          <article class="pizza-card" data-cat="vegan">
+            <div class="pizza-img">🌿</div>
+            <div class="pizza-info">
+              <span class="tag tag-vegan">Веган</span>
+              <h3>Garden Soul</h3>
+              <p>Томат, цукіні, перець, баклажан, каперси, оливки</p>
+              <div class="pizza-meta">
+                <span class="price">₴ 310</span>
+                <span class="weight">380г · 32см</span>
+              </div>
+              <div class="card-stars">★★★★☆</div>
+            </div>
+            <button class="add-btn" onclick="addToCart('Garden Soul', 310, '🌿')">+ До кошика</button>
+          </article>
+
+          <article class="pizza-card" data-cat="classic">
+            <div class="pizza-img">🧅</div>
+            <div class="pizza-info">
+              <span class="tag">Класика</span>
+              <h3>Quattro Formaggi</h3>
+              <p>Моцарела, горгонзола, пармезан, скаморца, волоський горіх</p>
+              <div class="pizza-meta">
+                <span class="price">₴ 380</span>
+                <span class="weight">410г · 32см</span>
+              </div>
+              <div class="card-stars">★★★★★</div>
+            </div>
+            <button class="add-btn" onclick="addToCart('Quattro Formaggi', 380, '🧅')">+ До кошика</button>
+          </article>
+
+          <article class="pizza-card" data-cat="craft">
+            <div class="pizza-img">🦐</div>
+            <div class="pizza-info">
+              <span class="tag tag-craft">Крафт</span>
+              <h3>Seafood Bianco</h3>
+              <p>Крем-соус, креветки, кальмар, лимон, часник, пармезан</p>
+              <div class="pizza-meta">
+                <span class="price">₴ 470</span>
+                <span class="weight">430г · 32см</span>
+              </div>
+              <div class="card-stars">★★★★★</div>
+            </div>
+            <button class="add-btn" onclick="addToCart('Seafood Bianco', 470, '🦐')">+ До кошика</button>
+          </article>
+
+          <article class="pizza-card" data-cat="vegan">
+            <div class="pizza-img">🥑</div>
+            <div class="pizza-info">
+              <span class="tag tag-vegan">Веган</span>
+              <h3>Avocado Verde</h3>
+              <p>Песто, авокадо, черрі, кукурудза, паростки, лайм</p>
+              <div class="pizza-meta">
+                <span class="price">₴ 340</span>
+                <span class="weight">370г · 32см</span>
+              </div>
+              <div class="card-stars">★★★★☆</div>
+            </div>
+            <button class="add-btn" onclick="addToCart('Avocado Verde', 340, '🥑')">+ До кошика</button>
+          </article>
+
+          <article class="pizza-card" data-cat="classic">
+            <div class="pizza-img">🐷</div>
+            <div class="pizza-info">
+              <span class="tag">Класика</span>
+              <h3>Diavola</h3>
+              <p>Томат, саламі пікканте, оливки, каперси, орегано</p>
+              <div class="pizza-meta">
+                <span class="price">₴ 320</span>
+                <span class="weight">390г · 32см</span>
+              </div>
+              <div class="card-stars">★★★★★</div>
+            </div>
+            <button class="add-btn" onclick="addToCart('Diavola', 320, '🐷')">+ До кошика</button>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===== CART SECTION ===== -->
+      <section id="cart" class="section">
+        <div class="section-header">
+          <h2>Ваш <em>Кошик</em></h2>
+          <p>Перевірте замовлення перед оформленням</p>
+        </div>
+
+        <div class="cart-container">
+          <div class="cart-list" id="cart-list">
+            <div class="cart-empty" id="cart-empty">
+              <span>🛒</span>
+              <p>Кошик порожній — оберіть піцу вище!</p>
+            </div>
+          </div>
+
+          <aside class="cart-summary" id="cart-summary">
+            <h3>Підсумок</h3>
+            <div class="summary-row">
+              <span>Товари</span>
+              <span id="subtotal">₴ 0</span>
+            </div>
+            <div class="summary-row">
+              <span>Доставка</span>
+              <span id="delivery-cost">₴ 50</span>
+            </div>
+            <div class="summary-row total">
+              <span>Разом</span>
+              <span id="total">₴ 50</span>
+            </div>
+            <button class="btn-primary full" id="checkout-btn" onclick="placeOrder()">Оформити замовлення</button>
+            <p class="cart-note">🕐 Доставка 40–60 хв · Безкоштовно від ₴ 600</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ===== ORDERS SECTION ===== -->
+      <section id="orders" class="section">
+        <div class="section-header">
+          <h2>Мої <em>Замовлення</em></h2>
+          <p>Історія ваших смачних пригод</p>
+        </div>
+
+        <div class="orders-list" id="orders-list">
+          <!-- Demo orders -->
+          <article class="order-card status-delivered">
+            <div class="order-header">
+              <div>
+                <span class="order-id">#PC-2024-041</span>
+                <span class="order-date">28 березня 2025</span>
+              </div>
+              <span class="order-status delivered">✓ Доставлено</span>
+            </div>
+            <ul class="order-items">
+              <li>🍕 Маргарита Vera × 1 — <strong>₴ 280</strong></li>
+              <li>🔥 Nduja Inferno × 2 — <strong>₴ 780</strong></li>
+            </ul>
+            <div class="order-footer">
+              <span>Разом: <strong>₴ 1 110</strong></span>
+              <button class="btn-reorder" onclick="alert('Повторне замовлення оформлено!')">Повторити</button>
+            </div>
+          </article>
+
+          <article class="order-card status-cooking">
+            <div class="order-header">
+              <div>
+                <span class="order-id">#PC-2024-042</span>
+                <span class="order-date">Сьогодні, 14:32</span>
+              </div>
+              <span class="order-status cooking">🔥 Готується</span>
+            </div>
+            <ul class="order-items">
+              <li>🫒 Black Truffle × 1 — <strong>₴ 520</strong></li>
+            </ul>
+            <div class="order-footer">
+              <span>Разом: <strong>₴ 570</strong></span>
+              <button class="btn-track" onclick="alert('Відстеження: пекар Андрій готує вашу піцу!')">Відстежити</button>
+            </div>
+          </article>
+
+          <div class="orders-empty-placeholder" id="orders-placeholder" style="display:none">
+            <span>📋</span>
+            <p>Замовлень ще немає. Спробуйте нашу піцу!</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-text">Pizza<em>Craft</em></span>
+          <p>Крафтова піца з любов'ю.<br />Львів, з 2019 року.</p>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Контакти</h4>
+          <address>
+            <p>📍 вул. Руська 12, Львів</p>
+            <p>📞 <a href="tel:+380321234567">+38 (032) 123-45-67</a></p>
+            <p>✉️ <a href="mailto:hello@pizzacraft.ua">hello@pizzacraft.ua</a></p>
+            <p>🕐 Пн–Нд: 11:00–23:00</p>
+          </address>
+        </div>
+
+        <div class="footer-links">
+          <h4>Навігація</h4>
+          <ul>
+            <li><a href="#menu">Меню</a></li>
+            <li><a href="#cart">Кошик</a></li>
+            <li><a href="#orders">Мої замовлення</a></li>
+            <li><a href="#">Про нас</a></li>
+            <li><a href="#">Умови доставки</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-social">
+          <h4>Ми в соцмережах</h4>
+          <div class="social-links">
+            <a href="#" class="social-btn">Instagram</a>
+            <a href="#" class="social-btn">Facebook</a>
+            <a href="#" class="social-btn">TikTok</a>
+          </div>
+          <p class="footer-services">Наші переваги:</p>
+          <ul class="perks-list">
+            <li>✦ 48 год. ферментація тіста</li>
+            <li>✦ Фермерські інгредієнти</li>
+            <li>✦ Піч на дровах 450°C</li>
+            <li>✦ Доставка за 40–60 хв</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 PizzaCraft. Всі права захищено.</p>
+        <p>Зроблено з ❤️ у Львові</p>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
 </html>
