@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PizzaCraft — Замовлення їжі</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">🍕</span>
+        <span class="logo-text">PizzaCraft</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#menu" class="nav-link active">Меню</a></li>
+          <li><a href="#cart" class="nav-link">Кошик <span class="cart-badge" id="cartBadge">0</span></a></li>
+          <li><a href="#orders" class="nav-link">Мої замовлення</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== SECTION: МЕНЮ ===== -->
+    <section id="menu" class="section active-section">
+      <div class="section-header">
+        <h1>Наше <em>Меню</em></h1>
+        <p class="section-subtitle">Свіжі інгредієнти, приготовані з любов'ю</p>
+      </div>
+
+      <div class="menu-grid" id="menuGrid">
+
+        <!-- Картка 1 -->
+        <article class="dish-card">
+          <div class="dish-img-wrap">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80" alt="Маргарита" class="dish-img" />
+            <span class="dish-badge">Хіт</span>
+          </div>
+          <div class="dish-info">
+            <h3 class="dish-name">Маргарита</h3>
+            <p class="dish-desc">Томатний соус, моцарела, свіжий базилік</p>
+            <div class="dish-footer">
+              <span class="dish-price">189 ₴</span>
+              <button class="btn-add" data-name="Маргарита" data-price="189">+ Додати</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Картка 2 -->
+        <article class="dish-card">
+          <div class="dish-img-wrap">
+            <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400&q=80" alt="Пепероні" class="dish-img" />
+          </div>
+          <div class="dish-info">
+            <h3 class="dish-name">Пепероні</h3>
+            <p class="dish-desc">Гостра ковбаса, моцарела, томатний соус</p>
+            <div class="dish-footer">
+              <span class="dish-price">219 ₴</span>
+              <button class="btn-add" data-name="Пепероні" data-price="219">+ Додати</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Картка 3 -->
+        <article class="dish-card">
+          <div class="dish-img-wrap">
+            <img src="https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?w=400&q=80" alt="Суші Філадельфія" class="dish-img" />
+            <span class="dish-badge new">Новинка</span>
+          </div>
+          <div class="dish-info">
+            <h3 class="dish-name">Філадельфія</h3>
+            <p class="dish-desc">Лосось, вершковий сир, авокадо, огірок</p>
+            <div class="dish-footer">
+              <span class="dish-price">265 ₴</span>
+              <button class="btn-add" data-name="Філадельфія" data-price="265">+ Додати</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Картка 4 -->
+        <article class="dish-card">
+          <div class="dish-img-wrap">
+            <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=400&q=80" alt="Суші Каліфорнія" class="dish-img" />
+          </div>
+          <div class="dish-info">
+            <h3 class="dish-name">Каліфорнія</h3>
+            <p class="dish-desc">Краб, авокадо, огірок, ікра тобіко</p>
+            <div class="dish-footer">
+              <span class="dish-price">245 ₴</span>
+              <button class="btn-add" data-name="Каліфорнія" data-price="245">+ Додати</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Картка 5 -->
+        <article class="dish-card">
+          <div class="dish-img-wrap">
+            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&q=80" alt="Капучіно" class="dish-img" />
+          </div>
+          <div class="dish-info">
+            <h3 class="dish-name">Капучіно</h3>
+            <p class="dish-desc">Еспресо, молочна піна, кориця</p>
+            <div class="dish-footer">
+              <span class="dish-price">89 ₴</span>
+              <button class="btn-add" data-name="Капучіно" data-price="89">+ Додати</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Картка 6 -->
+        <article class="dish-card">
+          <div class="dish-img-wrap">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80" alt="Бургер" class="dish-img" />
+            <span class="dish-badge">Хіт</span>
+          </div>
+          <div class="dish-info">
+            <h3 class="dish-name">Класик Бургер</h3>
+            <p class="dish-desc">Яловичина, чедер, салат, томат, соус</p>
+            <div class="dish-footer">
+              <span class="dish-price">199 ₴</span>
+              <button class="btn-add" data-name="Класик Бургер" data-price="199">+ Додати</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== SECTION: КОШИК ===== -->
+    <section id="cart" class="section">
+      <div class="section-header">
+        <h1>Ваш <em>Кошик</em></h1>
+        <p class="section-subtitle">Перевірте замовлення перед оплатою</p>
+      </div>
+
+      <!-- Порожній стан -->
+      <div id="cartEmpty" class="empty-state">
+        <span class="empty-icon">🛒</span>
+        <p>Кошик порожній. Додайте страви з меню!</p>
+        <a href="#menu" class="btn-primary nav-link" data-target="menu">Перейти до меню</a>
+      </div>
+
+      <!-- Таблиця кошика -->
+      <div id="cartContent" class="hidden">
+        <div class="cart-grid" id="cartGrid">
+          <!-- Генерується через JS -->
+        </div>
+
+        <div class="cart-summary">
+          <div class="summary-row">
+            <span>Кількість страв:</span>
+            <span id="totalItems">0</span>
+          </div>
+          <div class="summary-row total-row">
+            <span>Разом:</span>
+            <span id="totalPrice">0 ₴</span>
+          </div>
+          <button class="btn-primary btn-order" id="btnOrder">Оформити замовлення</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION: МОЇ ЗАМОВЛЕННЯ ===== -->
+    <section id="orders" class="section">
+      <div class="section-header">
+        <h1>Мої <em>Замовлення</em></h1>
+        <p class="section-subtitle">Історія ваших покупок</p>
+      </div>
+
+      <div id="ordersEmpty" class="empty-state">
+        <span class="empty-icon">📋</span>
+        <p>Ви ще не робили замовлень.</p>
+        <a href="#menu" class="btn-primary nav-link" data-target="menu">Зробити перше замовлення</a>
+      </div>
+
+      <div class="orders-grid" id="ordersGrid">
+        <!-- Генерується через JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-brand">🍕 PizzaCraft</p>
+      <p class="footer-info">📍 вул. Шевченка 12, Львів &nbsp;|&nbsp; 📞 +38 (032) 123-45-67 &nbsp;|&nbsp; ✉️ order@pizzacraft.ua</p>
+      <p class="footer-copy">© 2025 PizzaCraft. Всі права захищені.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
